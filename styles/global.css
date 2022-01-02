@@ -1,0 +1,32 @@
+@tailwind components;
+
+@layer components {
+    .button {
+        @apply px-4 py-2 
+        border rounded-full 
+        hover:shadow-lg 
+        cursor-pointer 
+        active:scale-95 
+        active:bg-gray-100 
+        transition-all 
+        duration-100 
+        ease-out
+    }
+    .header__link {
+        @apply relative cursor-pointer text-lg;
+      }
+      .header__link:hover {
+        opacity: .8;
+      }
+      .header__link::after {
+        content:'';
+        @apply absolute left-0 top-3 bottom-3 h-full w-full border-b-2 border-red-400 scale-x-0;
+        @apply transition duration-500;
+      }
+      .header__link.active::after {
+        @apply transform scale-x-[25%];
+      }
+      .header__link:not(.active):hover::after {
+        @apply transform scale-x-[10%];
+      }
+}
